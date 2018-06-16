@@ -54,3 +54,14 @@ function Saxon(health, strength) {
 }
 
 // War
+function War() {
+    this.vikingArmy = [];
+    this.saxonArmy = [];
+
+    this.addViking = function(objv){ //objecto viking
+        this.vikingArmy.push(objv);
+    }
+    this.addSaxon = function(objs){ //objeto saxon
+        this.saxonArmy.push(objs);
+    }
+}
