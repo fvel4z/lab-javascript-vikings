@@ -1,3 +1,5 @@
+//Fernanda y Monserrat
+
 // Soldier
 function Soldier(health, strength) {
     this.health = health;
