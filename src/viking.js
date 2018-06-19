@@ -12,9 +12,6 @@ function Soldier(health, strength) {
     }
 }
 
-// var soldier2 = new Soldier (2, 4);
-// console.log(soldier2);
-
 // Viking
 //Dog.prototype = Object.create(Animal.prototype);
 Viking.prototype = Object.create(Soldier.prototype);// Hace que Viking herede de soldier, creando un nuevo objeto que es Viking
@@ -63,5 +60,42 @@ function War() {
     }
     this.addSaxon = function(objs){ //objeto saxon
         this.saxonArmy.push(objs);
+    }
+
+    this.vikingAttack = function(){
+        var randomSaxon = (Math.floor(Math.random() * this.saxonArmy.length));
+        var randomViking = (Math.floor(Math.random() * this.vikingArmy.length));
+        // should make a Saxon receiveDamage() equal to the strength of a Viking
+        var sStrength = this.Saxon.damage - this.Viking.strength;
+        // should remove dead saxons from the army
+        if (this.Saxon.health === 0) {
+            this.saxonArmy.pop();
+        }
+        //should return result of calling receiveDamage() of a Saxon with the strength of a Viking
+        return sStrength;
+    }
+
+    // The Saxon version of vikingAttack(). A Viking receives the damage equal to the strength of a Saxon.
+    this.saxonAttack = function(){
+        var randomSaxon = (Math.floor(Math.random() * this.saxonArmy.length));
+        var randomViking = (Math.floor(Math.random() * this.vikingArmy.length));
+        // should make a Viking receiveDamage() equal to the strength of a Saxon
+        var vStrength = this.Viking.damage - this.Saxon.strength;
+        // should remove dead vikings from the army
+            if (this.Viking.health === 0) {
+            this.vikingArmy.pop();
+        }
+        // should return result of calling receiveDamage() of a Viking with the strength of a Saxon
+        return vStrength;
+    }
+
+    this.showStatus = function(){
+        if (this.saxonArmy.length === 0) {
+            return "Vikings have won the war of the century!";
+        } else if (this.vikingArmy.length === 0) {
+            return "Saxons have fought for their lives and survive another day...";
+        } else if (this.vikingArmy.length > 0 && this.saxonArmy.length > 0) {
+            return "Vikings and Saxons are still in the thick of the battle.";
+        }
     }
 }
