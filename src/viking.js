@@ -18,21 +18,27 @@ Viking.prototype = Object.create(Soldier.prototype);// Hace que Viking herede de
 function Viking(name, health, strength) {
     Soldier.call(this, health, strength); 
     this.name = name;
-    this.isAlive = true;
+    // this.isAlive = true;
 
     this.battleCry = function (){    
         return "Odin Owns You All!";
     }
     
-    Viking.prototype.receiveDamage = function(damage){ //esto modifica la funcion heredada de soldier(?
-        this.health = health - damage;
-        if(this.isAlive = true){
-            return this.name + "has received" + this.damage + "points of damage";
-        }else{
-            return this.name + "has died in act of combat";
-        }
-    }
 }
+
+Viking.prototype.receiveDamage = function(damage){ //esto modifica la funcion heredada de soldier(?
+    this.health = this.health - damage;
+    return (this.health <= 0 ? this.name + " has died in act of combat" : this.name + " has received " + damage + " points of damage");
+}
+
+// this.health = this.health - damage;
+//     if(this.health <= 0){
+//         this.isAlive = true
+//         return this.name + "has received" + this.damage + "points of damage";
+//     }else{
+//         this.isAlive = false
+//         return this.name + "has died in act of combat";
+//     }
 
 // Saxon
 Saxon.prototype = Object.create(Soldier.prototype); // Saxon tambien hereda de soldier
@@ -95,7 +101,7 @@ function War() {
         } else if (this.vikingArmy.length === 0) {
             return "Saxons have fought for their lives and survive another day...";
         } else if (this.vikingArmy.length > 0 && this.saxonArmy.length > 0) {
-            return "Vikings and Saxons are still in the thick of the battle.";
+            return "Vikings and Saxons are still in the thick of the battle!";
         }
     }
 }

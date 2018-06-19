@@ -117,6 +117,7 @@ describe("Viking", function () {
     });
 
     it("should return \"NAME has received DAMAGE points of damage\", if the Viking is still alive", function () {
+      console.log(viking.receiveDamage(50))
       expect(viking.receiveDamage(50)).toEqual(name + " has received 50 points of damage");
       expect(viking.receiveDamage(75)).toEqual(name + " has received 75 points of damage");
     });
