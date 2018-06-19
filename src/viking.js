@@ -1,3 +1,5 @@
+//Fernanda y Monserrat
+
 // Soldier
 function Soldier(health, strength) {
     this.health = health;
@@ -67,6 +69,7 @@ function War() {
     this.addSaxon = function(objs){ //objeto saxon
         this.saxonArmy.push(objs);
     }
+<<<<<<< HEAD
 
     this.vikingAttack = function(){
         var randomSaxon = (Math.floor(Math.random() * this.saxonArmy.length));
@@ -105,3 +108,6 @@ function War() {
         }
     }
 }
+=======
+}
+>>>>>>> origin
